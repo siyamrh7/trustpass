@@ -1,103 +1,304 @@
-import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  BadgeCheck,
+  BookOpenCheck,
+  CircleDollarSign,
+  ClipboardList,
+  FileWarning,
+  HandCoins,
+  History,
+  MapPin,
+  MessageSquareText,
+  QrCode,
+  Receipt,
+  SearchX,
+  ShieldCheck,
+  Star,
+  UserPlus,
+  Wallet,
+  Wrench,
+} from "lucide-react";
+import { Explain } from "@/components/ui";
+
+const STEPS = [
+  { icon: UserPlus, title: "Register", who: "Both", text: "Service providers and service receivers create an account on Trust Pass." },
+  { icon: MapPin, title: "Choose a provider", who: "Receiver", text: "See provider profiles, ratings and location — sorted from nearest to farthest." },
+  { icon: MessageSquareText, title: "Describe the job", who: "Receiver", text: "Write a note about the repair or wash needed, with asset details." },
+  { icon: Wrench, title: "Provider comes & works", who: "Provider", text: "The provider travels to the receiver's location and completes the work." },
+  { icon: ClipboardList, title: "Report the work", who: "Receiver", text: "Receiver asks the provider what was repaired and which parts were replaced, then submits it." },
+  { icon: Receipt, title: "Platform fixes the price", who: "Platform", text: "Trust Pass calculates the bill from a fixed price list — no bargaining, no hidden charge." },
+  { icon: Wallet, title: "Pay online", who: "Receiver", text: "Receiver pays through bKash, Nagad or card. Money is held by the platform." },
+  { icon: HandCoins, title: "Provider gets paid", who: "Platform", text: "Platform pays the provider (minus commission) and saves the record in the Service Passport." },
+];
+
+const PROBLEMS = [
+  { icon: CircleDollarSign, title: "Unfair & random pricing", text: "Mechanics often charge different prices to different customers for the same work." },
+  { icon: FileWarning, title: "Fake or unchanged parts", text: "Owners cannot verify whether a part was actually replaced or if it was genuine." },
+  { icon: History, title: "No service history", text: "Paper receipts get lost. When selling a car or bike, there is no proof of maintenance." },
+  { icon: SearchX, title: "Hard to find trusted help", text: "No easy way to find a verified, well-rated provider near your home." },
+];
+
+const FEATURES = [
+  { icon: BookOpenCheck, title: "Digital Service Passport", text: "Every repair, wash and part replacement is stored permanently against your asset — car, bike, AC, fridge and more." },
+  { icon: Star, title: "Ratings & reviews", text: "Providers build a public reputation. Good work brings more customers." },
+  { icon: MapPin, title: "Near-to-far search", text: "Providers are sorted by distance from your area, so help arrives faster." },
+  { icon: Receipt, title: "Fixed transparent pricing", text: "The platform sets prices from a standard catalogue, not the mechanic." },
+  { icon: Wallet, title: "Secure online payment", text: "Pay with bKash, Nagad or card. The provider is paid only after the job is reported." },
+  { icon: QrCode, title: "Portable & shareable", text: "Share the passport with a buyer or insurer using a QR code — it increases resale value." },
+];
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-slate-950 text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.35),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(20,184,166,0.25),transparent_50%)]" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-28">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
+              <ShieldCheck size={14} /> Made for Bangladesh
+            </span>
+            <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              Know your asset,
+              <br />
+              <span className="bg-gradient-to-r from-emerald-300 to-teal-200 bg-clip-text text-transparent">
+                trust your service.
+              </span>
+            </h1>
+            <p className="mt-5 max-w-lg text-lg text-slate-300">
+              Trust Pass is a portable <b className="text-white">Digital Service Passport</b> for transparent repair
+              and maintenance. Find a verified provider, get the work done at your doorstep, pay a fixed fair price,
+              and keep a lifetime record of every service.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/providers"
+                className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 font-semibold text-slate-950 transition hover:bg-emerald-400"
+              >
+                Find a provider <ArrowRight size={18} />
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+              >
+                See how it works
+              </Link>
+            </div>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          {/* Passport preview card */}
+          <div className="relative mx-auto w-full max-w-md">
+            <div className="absolute -inset-4 rounded-[2rem] bg-emerald-500/20 blur-2xl" />
+            <div className="relative rounded-3xl border border-white/10 bg-white p-6 text-slate-900 shadow-2xl">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Digital Service Passport</p>
+                  <p className="mt-1 text-xl font-extrabold">Toyota Axio 2016</p>
+                  <p className="font-mono text-xs text-slate-500">DHAKA METRO-GA 12-3456</p>
+                </div>
+                <div className="grid h-14 w-14 grid-cols-4 gap-0.5 rounded-lg bg-slate-900 p-1.5">
+                  {Array.from({ length: 16 }).map((_, i) => (
+                    <span key={i} className={[0, 3, 5, 6, 9, 10, 12, 15, 2, 13].includes(i) ? "bg-white" : ""} />
+                  ))}
+                </div>
+              </div>
+              <div className="mt-5 space-y-3">
+                {[
+                  { d: "22 Aug 2026", t: "Brake pad set replaced", p: "Bashundhara Motors", c: "bg-rose-500" },
+                  { d: "14 Jun 2026", t: "Engine oil + oil filter", p: "Rahman Auto Care", c: "bg-emerald-500" },
+                  { d: "02 Mar 2026", t: "Full foam wash", p: "Gulshan Car Spa", c: "bg-sky-500" },
+                ].map((e) => (
+                  <div key={e.d} className="flex items-center gap-3 rounded-xl bg-slate-50 p-3">
+                    <span className={`h-9 w-1.5 rounded-full ${e.c}`} />
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold">{e.t}</p>
+                      <p className="text-xs text-slate-500">
+                        {e.p} · {e.d}
+                      </p>
+                    </div>
+                    <BadgeCheck size={18} className="text-emerald-600" />
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4 text-xs text-slate-500">
+                <span>3 verified services</span>
+                <span className="font-semibold text-emerald-600">Health score 92/100</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="relative border-t border-white/10">
+          <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-8 sm:px-6 md:grid-cols-4">
+            {[
+              ["8+", "Verified providers (demo)"],
+              ["6", "Asset types supported"],
+              ["100%", "Fixed, transparent pricing"],
+              ["3", "Payment methods: bKash, Nagad, Card"],
+            ].map(([n, l]) => (
+              <div key={l}>
+                <p className="text-3xl font-extrabold text-emerald-300">{n}</p>
+                <p className="text-sm text-slate-400">{l}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-6xl px-4 pt-10 sm:px-6">
+        <Explain title="Presentation guide — what to show, in order">
+          <p className="mb-2">
+            This website is a <b>frontend-only prototype</b> built with Next.js. There is no backend; data is simulated
+            and stored in the browser so every step can be demonstrated live:
+          </p>
+          <ol className="list-decimal space-y-1 pl-5">
+            <li>
+              <Link className="underline" href="/register">Register</Link> as a receiver (or provider).
+            </li>
+            <li>
+              Open <Link className="underline" href="/providers">Find Providers</Link> — show rating + near-to-far sorting.
+            </li>
+            <li>Open a provider profile and book a service with a note.</li>
+            <li>On the job page, simulate the provider accepting and doing the work.</li>
+            <li>Enter the repairs and replaced parts → the platform fixes the price.</li>
+            <li>Pay online → platform pays the provider → check the <Link className="underline" href="/passport">Service Passport</Link>.</li>
+          </ol>
+          <p className="mt-2">Use the <b>Notes ON/OFF</b> button in the top bar to hide these yellow boxes.</p>
+        </Explain>
+      </div>
+
+      {/* PROBLEM */}
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <div className="max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-rose-600">The problem</p>
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Repair &amp; maintenance in Bangladesh runs on blind trust
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Millions of vehicles and home appliances are serviced every day by informal workshops. The owner usually
+            has no idea what was done, what it should cost, or whether the parts were genuine.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {PROBLEMS.map((p) => (
+            <div key={p.title} className="rounded-2xl border border-rose-100 bg-white p-6">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-rose-50 text-rose-600">
+                <p.icon size={22} />
+              </span>
+              <h3 className="mt-4 font-bold">{p.title}</h3>
+              <p className="mt-1.5 text-sm text-slate-600">{p.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SOLUTION FLOW */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Our solution</p>
+            <h2 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">From booking to payment in 8 simple steps</h2>
+            <p className="mt-3 text-slate-600">
+              Trust Pass sits in the middle of the service provider and the service receiver. It controls the price and
+              the payment, so both sides can trust each other.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {STEPS.map((s, i) => (
+              <div key={s.title} className="group relative rounded-2xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-emerald-300 hover:bg-white hover:shadow-lg">
+                <div className="flex items-center justify-between">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-emerald-600 text-white">
+                    <s.icon size={20} />
+                  </span>
+                  <span className="text-4xl font-extrabold text-slate-200 transition group-hover:text-emerald-100">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="mt-4 font-bold">{s.title}</h3>
+                <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-emerald-600">{s.who}</p>
+                <p className="mt-2 text-sm text-slate-600">{s.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link href="/how-it-works" className="inline-flex items-center gap-1.5 font-semibold text-emerald-700 hover:underline">
+              Read the detailed workflow <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURES */}
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <div className="max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">Key features</p>
+          <h2 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Built around transparency</h2>
+        </div>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {FEATURES.map((f) => (
+            <div key={f.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-emerald-50 text-emerald-600">
+                <f.icon size={22} />
+              </span>
+              <h3 className="mt-4 font-bold">{f.title}</h3>
+              <p className="mt-1.5 text-sm text-slate-600">{f.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* WHO BENEFITS */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-5 md:grid-cols-3">
+          {[
+            {
+              t: "Service Receivers",
+              c: "from-emerald-600 to-teal-700",
+              pts: ["Fair fixed price, no bargaining", "Know exactly what was repaired", "Lifetime service history", "Higher resale value"],
+            },
+            {
+              t: "Service Providers",
+              c: "from-slate-800 to-slate-950",
+              pts: ["New customers nearby", "Guaranteed online payment", "Reputation through ratings", "No price disputes"],
+            },
+            {
+              t: "Trust Pass Ltd.",
+              c: "from-sky-600 to-indigo-700",
+              pts: ["10% commission per job", "Data for insurers & buyers", "Premium provider listings", "Scales to all of Bangladesh"],
+            },
+          ].map((b) => (
+            <div key={b.t} className={`rounded-3xl bg-gradient-to-br ${b.c} p-7 text-white`}>
+              <h3 className="text-xl font-bold">{b.t}</h3>
+              <ul className="mt-4 space-y-2.5 text-sm text-white/90">
+                {b.pts.map((p) => (
+                  <li key={p} className="flex gap-2">
+                    <BadgeCheck size={18} className="shrink-0" /> {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto mt-20 max-w-6xl px-4 sm:px-6">
+        <div className="flex flex-col items-start justify-between gap-6 rounded-3xl border border-emerald-200 bg-emerald-50 p-8 sm:p-10 md:flex-row md:items-center">
+          <div>
+            <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Ready to try the demo?</h2>
+            <p className="mt-1 text-slate-600">Register as a receiver or provider and walk through the full service journey.</p>
+          </div>
+          <div className="flex gap-3">
+            <Link href="/register" className="rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white hover:bg-emerald-700">
+              Register now
+            </Link>
+            <Link href="/providers" className="rounded-xl border border-slate-300 bg-white px-6 py-3 font-semibold hover:bg-slate-50">
+              Browse providers
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
