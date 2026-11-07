@@ -57,7 +57,7 @@ export default function RegisterPage() {
           .join("")
           .slice(0, 2)
           .toUpperCase(),
-        color: "bg-indigo-600",
+        color: "bg-emerald-600",
         reviews: [],
       });
       setUser({ role, name, phone, email, area, providerId: id });

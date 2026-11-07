@@ -24,7 +24,7 @@ export function Navbar() {
   const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-[#f6f2e8]/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="/" onClick={() => setOpen(false)}>
           <Logo />
@@ -47,7 +47,7 @@ export function Navbar() {
         <div className="hidden items-center gap-2 lg:flex">
           <Link
             href="/register"
-            className="rounded-lg bg-slate-900 px-3.5 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+            className="rounded-full bg-emerald-800 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700"
           >
             {user.role === "provider" ? "Provider: " + user.name.split(" ")[0] : "Register"}
           </Link>
@@ -76,7 +76,7 @@ export function Navbar() {
             <Link
               href="/register"
               onClick={() => setOpen(false)}
-              className="w-full rounded-lg bg-slate-900 px-3 py-2.5 text-center text-sm font-semibold text-white"
+              className="w-full rounded-full bg-emerald-800 px-3 py-2.5 text-center text-sm font-semibold text-white"
             >
               Register
             </Link>
@@ -89,11 +89,11 @@ export function Navbar() {
 
 export function Footer() {
   return (
-    <footer className="mt-20 bg-slate-950 text-slate-400">
+    <footer className="mt-20 bg-emerald-950 text-emerald-100/70">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
           <Logo light />
-          <p className="mt-3 text-sm font-medium text-emerald-400">Know your asset, trust your service.</p>
+          <p className="mt-3 text-sm font-medium text-amber-300">Know your asset, trust your service.</p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed">
             Trust Pass Ltd. builds a portable Digital Service Passport for transparent repair and maintenance in
             Bangladesh — connecting asset owners with verified service providers.
@@ -120,7 +120,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-slate-800 py-5 text-center text-xs">
+      <div className="border-t border-white/10 py-5 text-center text-xs">
         © 2026 Trust Pass Ltd. All rights reserved.
       </div>
     </footer>

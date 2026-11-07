@@ -73,7 +73,7 @@ export const PROVIDERS: Provider[] = [
     visitCharge: 300,
     bio: "Certified mechanic team specialising in Toyota, Honda and Suzuki. Doorstep engine diagnosis, brake and suspension work.",
     initials: "RA",
-    color: "bg-emerald-600",
+    color: "bg-emerald-700",
     reviews: [
       { by: "Tanvir H.", rating: 5, text: "Explained every part he changed. Price matched the app exactly.", date: "2026-10-12" },
       { by: "Nusrat J.", rating: 5, text: "Came on time to my house, very professional.", date: "2026-09-28" },
@@ -142,7 +142,7 @@ export const PROVIDERS: Provider[] = [
     visitCharge: 200,
     bio: "Bajaj, Yamaha, Hero, Suzuki specialist. Chain sprocket, brake shoe, carburettor and engine tuning.",
     initials: "UB",
-    color: "bg-orange-600",
+    color: "bg-amber-600",
     reviews: [{ by: "Sakib R.", rating: 5, text: "Fixed my Pulsar in 40 minutes.", date: "2026-10-18" }],
   },
   {
@@ -182,7 +182,7 @@ export const PROVIDERS: Provider[] = [
     visitCharge: 500,
     bio: "Diesel and petrol generator servicing for homes, shops and offices. AVR and alternator rewinding.",
     initials: "PL",
-    color: "bg-amber-600",
+    color: "bg-teal-700",
     reviews: [{ by: "Office Admin, Motijheel", rating: 4, text: "Reliable and experienced.", date: "2026-08-30" }],
   },
   {
@@ -202,7 +202,7 @@ export const PROVIDERS: Provider[] = [
     visitCharge: 350,
     bio: "Hybrid and petrol car specialists. Computer scanning, AC system, battery and electrical faults.",
     initials: "BM",
-    color: "bg-teal-600",
+    color: "bg-emerald-900",
     reviews: [{ by: "Imran H.", rating: 5, text: "Scanned the car and showed me the error codes.", date: "2026-10-25" }],
   },
   {
@@ -222,7 +222,7 @@ export const PROVIDERS: Provider[] = [
     visitCharge: 150,
     bio: "Affordable foam wash, polish and vacuum for cars and bikes at your parking spot.",
     initials: "SW",
-    color: "bg-cyan-600",
+    color: "bg-slate-600",
     reviews: [{ by: "Rubel A.", rating: 4, text: "Good value for money.", date: "2026-10-09" }],
   },
 ];

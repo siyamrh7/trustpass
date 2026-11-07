@@ -51,17 +51,21 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.35),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(20,184,166,0.25),transparent_50%)]" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-emerald-950 via-[#1b2c19] to-[#2a2416] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(214,171,74,0.22),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(127,162,108,0.28),transparent_55%)]" />
+        <svg className="pointer-events-none absolute -right-24 -top-24 h-[520px] w-[520px] text-emerald-400/[0.07]" viewBox="0 0 200 200" aria-hidden="true">
+          <path fill="currentColor" d="M100 10c50 0 90 40 90 90-40 0-70-15-90-45-20 30-50 45-90 45 0-50 40-90 90-90Z" />
+          <path fill="none" stroke="currentColor" strokeWidth="2" d="M100 20v170" />
+        </svg>
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-28">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
+            <span className="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-300/10 px-3 py-1 text-xs font-semibold tracking-wide text-amber-200">
               <ShieldCheck size={14} /> Made for Bangladesh
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
               Know your asset,
               <br />
-              <span className="bg-gradient-to-r from-emerald-300 to-teal-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-200 via-amber-300 to-emerald-300 bg-clip-text italic text-transparent">
                 trust your service.
               </span>
             </h1>
@@ -73,13 +77,13 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/providers"
-                className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 font-semibold text-slate-950 transition hover:bg-emerald-400"
+                className="inline-flex items-center gap-2 rounded-full bg-amber-300 px-6 py-3 font-semibold text-emerald-950 shadow-lg shadow-amber-900/20 transition hover:bg-amber-200"
               >
                 Find a provider <ArrowRight size={18} />
               </Link>
               <Link
                 href="/how-it-works"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
               >
                 See how it works
               </Link>
@@ -88,7 +92,7 @@ export default function Home() {
 
           {/* Passport preview card */}
           <div className="relative mx-auto w-full max-w-md">
-            <div className="absolute -inset-4 rounded-[2rem] bg-emerald-500/20 blur-2xl" />
+            <div className="absolute -inset-4 rounded-[2rem] bg-amber-300/15 blur-2xl" />
             <div className="relative rounded-3xl border border-white/10 bg-white p-6 text-slate-900 shadow-2xl">
               <div className="flex items-start justify-between">
                 <div>
@@ -137,7 +141,7 @@ export default function Home() {
               ["3", "Payment methods: bKash, Nagad, Card"],
             ].map(([n, l]) => (
               <div key={l}>
-                <p className="text-3xl font-extrabold text-emerald-300">{n}</p>
+                <p className="font-display text-3xl font-semibold text-amber-200">{n}</p>
                 <p className="text-sm text-slate-400">{l}</p>
               </div>
             ))}
@@ -231,17 +235,17 @@ export default function Home() {
           {[
             {
               t: "Service Receivers",
-              c: "from-emerald-600 to-teal-700",
+              c: "from-emerald-600 to-emerald-900",
               pts: ["Fair fixed price, no bargaining", "Know exactly what was repaired", "Lifetime service history", "Higher resale value"],
             },
             {
               t: "Service Providers",
-              c: "from-slate-800 to-slate-950",
+              c: "from-slate-700 to-slate-900",
               pts: ["New customers nearby", "Guaranteed online payment", "Reputation through ratings", "No price disputes"],
             },
             {
               t: "Trust Pass Ltd.",
-              c: "from-sky-600 to-indigo-700",
+              c: "from-amber-600 to-amber-800",
               pts: ["10% commission per job", "Data for insurers & buyers", "Premium provider listings", "Scales to all of Bangladesh"],
             },
           ].map((b) => (

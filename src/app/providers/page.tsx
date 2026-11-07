@@ -160,7 +160,7 @@ function Radar({ origin, points }: { origin: string; points: { id: string; label
       <p className="text-xs text-slate-500">You are at the centre ({origin}). Rings = 4 km.</p>
       <svg viewBox="-150 -150 300 300" className="mt-3 w-full">
         {[1, 2, 3, 4].map((r) => (
-          <circle key={r} r={(R * r) / 4} fill="none" stroke="#e2e8f0" strokeDasharray={r === 4 ? "" : "3 4"} />
+          <circle key={r} r={(R * r) / 4} fill="none" stroke="#e6dfcf" strokeDasharray={r === 4 ? "" : "3 4"} />
         ))}
         {points.map((p) => {
           const ang = Math.atan2(-p.dy, p.dx * Math.cos((23.8 * Math.PI) / 180));
@@ -169,16 +169,16 @@ function Radar({ origin, points }: { origin: string; points: { id: string; label
           const y = Math.sin(ang) * d;
           return (
             <g key={p.id}>
-              <line x1={0} y1={0} x2={x} y2={y} stroke="#a7f3d0" />
-              <circle cx={x} cy={y} r={11} fill="#059669" />
+              <line x1={0} y1={0} x2={x} y2={y} stroke="#c7d7ba" />
+              <circle cx={x} cy={y} r={11} fill="#4a6c3e" />
               <text x={x} y={y + 3.5} textAnchor="middle" fontSize="9" fontWeight="700" fill="white">
                 {p.label}
               </text>
             </g>
           );
         })}
-        <circle r={8} fill="#0f172a" />
-        <circle r={14} fill="none" stroke="#0f172a" strokeOpacity={0.25} />
+        <circle r={8} fill="#a67c2a" />
+        <circle r={14} fill="none" stroke="#a67c2a" strokeOpacity={0.35} />
       </svg>
     </div>
   );

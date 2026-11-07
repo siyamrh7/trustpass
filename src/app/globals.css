@@ -1,7 +1,83 @@
 @import "tailwindcss";
 
+/*
+  Natural theme: the Tailwind palettes used across the site are remapped here,
+  so every page picks up the new look.
+  - emerald → forest / sage green (primary)
+  - teal    → olive / moss (secondary)
+  - slate   → warm stone (neutrals)
+  - amber   → honey gold (accent)
+*/
 @theme inline {
-  --font-sans: var(--font-jakarta);
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+}
+
+@theme {
+
+  --color-emerald-50: #f3f6ef;
+  --color-emerald-100: #e3ebdb;
+  --color-emerald-200: #c7d7ba;
+  --color-emerald-300: #a3bf92;
+  --color-emerald-400: #7fa26c;
+  --color-emerald-500: #5f8650;
+  --color-emerald-600: #4a6c3e;
+  --color-emerald-700: #3b5732;
+  --color-emerald-800: #30462a;
+  --color-emerald-900: #263a23;
+  --color-emerald-950: #142112;
+
+  --color-teal-50: #f6f6ea;
+  --color-teal-100: #ebebcf;
+  --color-teal-200: #e3d9a8;
+  --color-teal-300: #cdbf7f;
+  --color-teal-600: #6e6a32;
+  --color-teal-700: #57542a;
+
+  --color-slate-50: #faf7f0;
+  --color-slate-100: #f2ede2;
+  --color-slate-200: #e6dfcf;
+  --color-slate-300: #d4cab5;
+  --color-slate-400: #a99f89;
+  --color-slate-500: #7e7563;
+  --color-slate-600: #5f574a;
+  --color-slate-700: #473f35;
+  --color-slate-800: #2f2a23;
+  --color-slate-900: #221e18;
+  --color-slate-950: #16130f;
+
+  --color-amber-50: #fbf5e6;
+  --color-amber-100: #f6e9c6;
+  --color-amber-200: #eed79a;
+  --color-amber-300: #e4c26d;
+  --color-amber-400: #d6ab4a;
+  --color-amber-500: #c29536;
+  --color-amber-600: #a67c2a;
+  --color-amber-700: #855f22;
+  --color-amber-800: #6a4b1f;
+
+  --color-white: #fffdf8;
+
+  /* terracotta */
+  --color-rose-50: #fbf0eb;
+  --color-rose-100: #f5dcd1;
+  --color-rose-200: #ebc0ad;
+  --color-rose-500: #c0613f;
+  --color-rose-600: #a8502f;
+  --color-rose-700: #8a4127;
+
+  /* dusty blue-green */
+  --color-sky-50: #eef4f3;
+  --color-sky-200: #c5d9d6;
+  --color-sky-500: #5b8a87;
+  --color-sky-600: #4b7572;
+  --color-sky-700: #3d605d;
+  --color-sky-800: #2f4b49;
+
+  /* muted plum */
+  --color-violet-50: #f5eff3;
+  --color-violet-600: #7a5470;
+  --color-violet-700: #664660;
 }
 
 html {
@@ -9,6 +85,19 @@ html {
 }
 
 body {
-  background: #f8fafc;
-  color: #0f172a;
+  background: #f6f2e8;
+  color: #221e18;
+}
+
+/* Elegant serif for headings */
+h1,
+h2 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+::selection {
+  background: #c7d7ba;
+  color: #142112;
 }
