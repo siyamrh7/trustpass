@@ -1,8 +1,7 @@
 "use client";
 
 // ---------------------------------------------------------------------------
-// DEMO STORE — replaces the backend. State lives in React context and is
-// saved in the browser's localStorage so the demo survives page refreshes.
+// APP STORE — application state (users, providers, bookings) shared via React context.
 // ---------------------------------------------------------------------------
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
@@ -78,8 +77,8 @@ const SEED_BOOKINGS: Booking[] = [
   {
     id: "TP-10231",
     providerId: "p1",
-    receiverName: "Demo Receiver",
-    receiverPhone: "+880 1700-000000",
+    receiverName: "Tanvir Ahmed",
+    receiverPhone: "+880 1712-345678",
     area: "Dhanmondi",
     asset: { type: "Car", brand: "Toyota", model: "Axio 2016", regNo: "DHAKA METRO-GA 12-3456" },
     service: "Maintenance",
@@ -101,8 +100,8 @@ const SEED_BOOKINGS: Booking[] = [
   {
     id: "TP-10577",
     providerId: "p7",
-    receiverName: "Demo Receiver",
-    receiverPhone: "+880 1700-000000",
+    receiverName: "Tanvir Ahmed",
+    receiverPhone: "+880 1712-345678",
     area: "Dhanmondi",
     asset: { type: "Car", brand: "Toyota", model: "Axio 2016", regNo: "DHAKA METRO-GA 12-3456" },
     service: "Repair",
@@ -124,8 +123,8 @@ const SEED_BOOKINGS: Booking[] = [
   {
     id: "TP-10902",
     providerId: "p2",
-    receiverName: "Demo Receiver",
-    receiverPhone: "+880 1700-000000",
+    receiverName: "Tanvir Ahmed",
+    receiverPhone: "+880 1712-345678",
     area: "Dhanmondi",
     asset: { type: "Air Conditioner", brand: "Gree", model: "1.5 Ton Split", regNo: "SN-GR-77812" },
     service: "Wash",
@@ -147,9 +146,9 @@ const SEED_BOOKINGS: Booking[] = [
 
 const DEFAULT_USER: User = {
   role: "receiver",
-  name: "Demo Receiver",
-  phone: "+880 1700-000000",
-  email: "demo@trustpass.com.bd",
+  name: "Tanvir Ahmed",
+  phone: "+880 1712-345678",
+  email: "tanvir.ahmed@gmail.com",
   area: "Dhanmondi",
 };
 
@@ -164,11 +163,11 @@ type Ctx = State & {
   addProvider: (p: Provider) => void;
   createBooking: (b: Omit<Booking, "id" | "status" | "items" | "createdAt">) => string;
   updateBooking: (id: string, patch: Partial<Booking>) => void;
-  resetDemo: () => void;
+  resetData: () => void;
 };
 
 const StoreContext = createContext<Ctx | null>(null);
-const KEY = "trustpass-demo-v1";
+const KEY = "trustpass-v2";
 
 export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<State>(INITIAL);
@@ -205,7 +204,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       setState((s) => ({ ...s, bookings: s.bookings.map((b) => (b.id === id ? { ...b, ...patch } : b)) })),
     []
   );
-  const resetDemo = useCallback(() => {
+  const resetData = useCallback(() => {
     setState(INITIAL);
     try {
       localStorage.removeItem(KEY);
@@ -221,9 +220,9 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       addProvider,
       createBooking,
       updateBooking,
-      resetDemo,
+      resetData,
     }),
-    [state, ready, setUser, addProvider, createBooking, updateBooking, resetDemo]
+    [state, ready, setUser, addProvider, createBooking, updateBooking, resetData]
   );
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;

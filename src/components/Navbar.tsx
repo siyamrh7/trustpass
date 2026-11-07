@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Lightbulb, Menu, RotateCcw, X } from "lucide-react";
-import { Logo, useNotes } from "./ui";
+import { Menu, X } from "lucide-react";
+import { Logo } from "./ui";
 import { useStore } from "@/lib/store";
 
 const LINKS = [
@@ -19,7 +19,6 @@ const LINKS = [
 export function Navbar() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
-  const { on, toggle } = useNotes();
   const { user } = useStore();
 
   const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
@@ -46,15 +45,6 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <button
-            onClick={toggle}
-            title="Show / hide the yellow explanation boxes"
-            className={`flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-semibold transition ${
-              on ? "bg-amber-100 text-amber-800" : "bg-slate-100 text-slate-500"
-            }`}
-          >
-            <Lightbulb size={14} /> Notes {on ? "ON" : "OFF"}
-          </button>
           <Link
             href="/register"
             className="rounded-lg bg-slate-900 px-3.5 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
@@ -83,13 +73,10 @@ export function Navbar() {
             </Link>
           ))}
           <div className="mt-2 flex gap-2">
-            <button onClick={toggle} className="flex-1 rounded-lg bg-amber-100 px-3 py-2.5 text-sm font-semibold text-amber-800">
-              Notes {on ? "ON" : "OFF"}
-            </button>
             <Link
               href="/register"
               onClick={() => setOpen(false)}
-              className="flex-1 rounded-lg bg-slate-900 px-3 py-2.5 text-center text-sm font-semibold text-white"
+              className="w-full rounded-lg bg-slate-900 px-3 py-2.5 text-center text-sm font-semibold text-white"
             >
               Register
             </Link>
@@ -101,7 +88,6 @@ export function Navbar() {
 }
 
 export function Footer() {
-  const { resetDemo } = useStore();
   return (
     <footer className="mt-20 bg-slate-950 text-slate-400">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
@@ -132,16 +118,10 @@ export function Footer() {
             <li>hello@trustpass.com.bd</li>
             <li>+880 9610-000000</li>
           </ul>
-          <button
-            onClick={resetDemo}
-            className="mt-5 inline-flex items-center gap-1.5 rounded-lg border border-slate-700 px-3 py-1.5 text-xs text-slate-300 hover:bg-slate-800"
-          >
-            <RotateCcw size={12} /> Reset demo data
-          </button>
         </div>
       </div>
       <div className="border-t border-slate-800 py-5 text-center text-xs">
-        © 2026 Trust Pass Ltd. · University project prototype (frontend only — all data is simulated)
+        © 2026 Trust Pass Ltd. All rights reserved.
       </div>
     </footer>
   );

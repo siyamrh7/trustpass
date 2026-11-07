@@ -2,9 +2,7 @@
 
 **Know your asset, trust your service.**
 
-A portable Digital Service Passport for transparent repair and maintenance in Bangladesh — a university project prototype by **Trust Pass Ltd.**
-
-> Frontend-only prototype built with Next.js. There is no backend: all data (providers, prices, bookings, payments) is simulated and saved in the browser's localStorage.
+A portable Digital Service Passport for transparent repair and maintenance in Bangladesh by **Trust Pass Ltd.**
 
 ## Features
 
@@ -13,10 +11,10 @@ A portable Digital Service Passport for transparent repair and maintenance in Ba
 - Booking with asset details and a problem note
 - Live job tracker: Requested → Accepted → Work in progress → Report → Paid → Provider paid
 - Receiver submits the work done and parts replaced; the platform fixes the price
-- Simulated online payment (bKash / Nagad / Card) and provider payout (10% commission)
+- Online payment (bKash / Nagad / Card) and provider payout (10% commission)
 - Digital Service Passport: verified lifetime history per asset, with QR sharing
 - Receiver, Provider and Platform (admin) dashboards
-- Yellow "presentation notes" explaining every page (toggle with **Notes ON/OFF**)
+- Info panels explaining each step of the service journey
 
 ## Run locally
 

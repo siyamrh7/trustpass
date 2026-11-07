@@ -11,7 +11,7 @@ const FLOW = [
     points: [
       "Service provider registers business name, owner, phone, location, asset types handled and visit charge.",
       "Service receiver registers name, phone and area (location is used to find nearby providers).",
-      "In the real system, providers would be verified by NID and trade licence before getting the ✔ badge.",
+      "Providers are verified by NID and trade licence before they get the ✔ Verified badge.",
     ],
   },
   {

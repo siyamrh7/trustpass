@@ -19,7 +19,6 @@ import {
   Wallet,
   Wrench,
 } from "lucide-react";
-import { Explain } from "@/components/ui";
 
 const STEPS = [
   { icon: UserPlus, title: "Register", who: "Both", text: "Service providers and service receivers create an account on Trust Pass." },
@@ -132,7 +131,7 @@ export default function Home() {
         <div className="relative border-t border-white/10">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-8 sm:px-6 md:grid-cols-4">
             {[
-              ["8+", "Verified providers (demo)"],
+              ["8+", "Verified providers in Dhaka"],
               ["6", "Asset types supported"],
               ["100%", "Fixed, transparent pricing"],
               ["3", "Payment methods: bKash, Nagad, Card"],
@@ -145,28 +144,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <div className="mx-auto max-w-6xl px-4 pt-10 sm:px-6">
-        <Explain title="Presentation guide — what to show, in order">
-          <p className="mb-2">
-            This website is a <b>frontend-only prototype</b> built with Next.js. There is no backend; data is simulated
-            and stored in the browser so every step can be demonstrated live:
-          </p>
-          <ol className="list-decimal space-y-1 pl-5">
-            <li>
-              <Link className="underline" href="/register">Register</Link> as a receiver (or provider).
-            </li>
-            <li>
-              Open <Link className="underline" href="/providers">Find Providers</Link> — show rating + near-to-far sorting.
-            </li>
-            <li>Open a provider profile and book a service with a note.</li>
-            <li>On the job page, simulate the provider accepting and doing the work.</li>
-            <li>Enter the repairs and replaced parts → the platform fixes the price.</li>
-            <li>Pay online → platform pays the provider → check the <Link className="underline" href="/passport">Service Passport</Link>.</li>
-          </ol>
-          <p className="mt-2">Use the <b>Notes ON/OFF</b> button in the top bar to hide these yellow boxes.</p>
-        </Explain>
-      </div>
 
       {/* PROBLEM */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
@@ -286,8 +263,8 @@ export default function Home() {
       <section className="mx-auto mt-20 max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col items-start justify-between gap-6 rounded-3xl border border-emerald-200 bg-emerald-50 p-8 sm:p-10 md:flex-row md:items-center">
           <div>
-            <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Ready to try the demo?</h2>
-            <p className="mt-1 text-slate-600">Register as a receiver or provider and walk through the full service journey.</p>
+            <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Ready to get started?</h2>
+            <p className="mt-1 text-slate-600">Register as a service receiver or provider and experience transparent service.</p>
           </div>
           <div className="flex gap-3">
             <Link href="/register" className="rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white hover:bg-emerald-700">

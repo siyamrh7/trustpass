@@ -1,44 +1,18 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
-import { Lightbulb, ShieldCheck, Star } from "lucide-react";
+import { Info, ShieldCheck, Star } from "lucide-react";
 
-// ---------- Presentation notes (can be toggled from the navbar) ----------
-
-const NotesCtx = createContext<{ on: boolean; toggle: () => void }>({ on: true, toggle: () => {} });
-
-export function NotesProvider({ children }: { children: React.ReactNode }) {
-  const [on, setOn] = useState(true);
-  useEffect(() => {
-    try {
-      if (localStorage.getItem("tp-notes") === "off") setOn(false);
-    } catch {}
-  }, []);
-  const toggle = () =>
-    setOn((v) => {
-      try {
-        localStorage.setItem("tp-notes", v ? "off" : "on");
-      } catch {}
-      return !v;
-    });
-  return <NotesCtx.Provider value={{ on, toggle }}>{children}</NotesCtx.Provider>;
-}
-
-export const useNotes = () => useContext(NotesCtx);
-
-/** Yellow "explainer" box shown to the teacher during the presentation. */
+/** Information panel explaining the current step / page. */
 export function Explain({ title = "How this works", children }: { title?: string; children: React.ReactNode }) {
-  const { on } = useNotes();
-  if (!on) return null;
   return (
-    <div className="rounded-2xl border border-dashed border-amber-400 bg-amber-50 p-4 text-sm text-amber-950 sm:p-5">
-      <div className="mb-1.5 flex items-center gap-2 font-semibold">
-        <span className="grid h-6 w-6 place-items-center rounded-full bg-amber-400 text-white">
-          <Lightbulb size={14} />
+    <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4 text-sm text-slate-700 sm:p-5">
+      <div className="mb-1.5 flex items-center gap-2 font-semibold text-slate-900">
+        <span className="grid h-6 w-6 place-items-center rounded-full bg-emerald-600 text-white">
+          <Info size={14} />
         </span>
         {title}
       </div>
-      <div className="leading-relaxed text-amber-900 [&_b]:text-amber-950 [&_li]:ml-4 [&_li]:list-disc">{children}</div>
+      <div className="leading-relaxed [&_b]:text-slate-900 [&_li]:ml-4 [&_li]:list-disc">{children}</div>
     </div>
   );
 }

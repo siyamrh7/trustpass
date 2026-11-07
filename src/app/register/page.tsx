@@ -190,11 +190,10 @@ export default function RegisterPage() {
               <li>Two types of users can register: <b>receivers</b> and <b>providers</b>.</li>
               <li>A provider&apos;s profile (name, services, location, visit charge) becomes visible on the Find Providers page.</li>
               <li>The receiver&apos;s <b>area</b> is used to calculate distance and sort providers near → far.</li>
-              <li>No backend: the account is saved only in this browser for the demo.</li>
             </ul>
           </Explain>
           <div className="rounded-2xl border border-slate-200 bg-white p-5 text-sm">
-            <p className="font-bold">Provider verification (real system)</p>
+            <p className="font-bold">Provider verification process</p>
             <ol className="mt-2 list-decimal space-y-1 pl-5 text-slate-600">
               <li>NID & trade licence check</li>
               <li>Phone OTP verification</li>

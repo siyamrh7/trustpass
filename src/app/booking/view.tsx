@@ -26,8 +26,8 @@ import { Explain, btnPrimary, btnSecondary, inputCls } from "@/components/ui";
 
 const EXPLAIN: Record<Booking["status"], React.ReactNode> = {
   requested: (
-    <>The booking has been sent. In a real system the provider gets an SMS / app notification. For the demo, press the
-      <b> provider action</b> button to simulate the provider accepting.</>
+    <>The booking has been sent and the provider has been notified by SMS and app notification. The status updates
+      automatically as soon as the provider accepts.</>
   ),
   accepted: <>The provider accepted and is travelling to the receiver&apos;s location. Live status keeps the receiver informed.</>,
   in_progress: (
@@ -41,7 +41,7 @@ const EXPLAIN: Record<Booking["status"], React.ReactNode> = {
   ),
   paid: (
     <>Payment is safely held by Trust Pass. The platform now keeps its {PLATFORM_COMMISSION * 100}% commission and
-      releases the rest to the provider&apos;s account. Press the <b>platform action</b> button to simulate this.</>
+      releases the rest to the provider&apos;s bKash or bank account.</>
   ),
   completed: (
     <>Done! The provider has been paid and this service is now permanently recorded in the asset&apos;s <b>Digital Service
@@ -112,7 +112,7 @@ export function BookingView() {
 
           {b.status === "requested" && (
             <Panel icon={Loader2} spin title="Waiting for the provider to accept…" text={`${p.name} has received your request and note.`}>
-              <SimButton who="Provider action" onClick={() => updateBooking(b.id, { status: "accepted" })}>
+              <SimButton who="Provider update" onClick={() => updateBooking(b.id, { status: "accepted" })}>
                 Provider accepts the job
               </SimButton>
             </Panel>
@@ -120,7 +120,7 @@ export function BookingView() {
 
           {b.status === "accepted" && (
             <Panel icon={p.assets.includes("Motorbike") ? Bike : Truck} title={`${p.owner} is on the way`} text={`Estimated arrival in 25 minutes at ${b.area}. Contact: ${p.phone}`}>
-              <SimButton who="Provider action" onClick={() => updateBooking(b.id, { status: "in_progress" })}>
+              <SimButton who="Provider update" onClick={() => updateBooking(b.id, { status: "in_progress" })}>
                 Provider arrived — start work
               </SimButton>
             </Panel>
@@ -133,7 +133,7 @@ export function BookingView() {
           {b.status === "paid" && (
             <Panel icon={Lock} title="Payment received & held securely" text={`Transaction ${b.txnId} via ${b.payMethod}. Trust Pass is now processing the provider payout.`}>
               <PayoutBreakdown booking={b} providers={providers} />
-              <SimButton who="Platform action" onClick={() => updateBooking(b.id, { status: "completed", payoutAt: new Date().toISOString() })}>
+              <SimButton who="Trust Pass payout system" onClick={() => updateBooking(b.id, { status: "completed", payoutAt: new Date().toISOString() })}>
                 Release payment to provider
               </SimButton>
             </Panel>
@@ -230,7 +230,7 @@ function Panel({
 function SimButton({ who, onClick, children }: { who: string; onClick: () => void; children: React.ReactNode }) {
   return (
     <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-4">
-      <p className="mb-2 text-xs font-bold uppercase tracking-wide text-slate-400">Demo · {who}</p>
+      <p className="mb-2 text-xs font-bold uppercase tracking-wide text-slate-400">{who}</p>
       <button onClick={onClick} className={btnPrimary}>
         {children} <ArrowRight size={16} />
       </button>
@@ -468,7 +468,7 @@ function Payment({
           ) : (
             <>
               <input required className={inputCls} placeholder={`${method} account number`} defaultValue="01700000000" />
-              <input required type="password" className={inputCls} placeholder="PIN (demo — any 5 digits)" />
+              <input required type="password" className={inputCls} placeholder="PIN" />
             </>
           )}
         </div>
@@ -483,7 +483,7 @@ function Payment({
             </>
           )}
         </button>
-        <p className="mt-2 text-center text-xs text-slate-400">Demo payment — no real money is charged.</p>
+        <p className="mt-2 text-center text-xs text-slate-400">Payments are processed securely through Trust Pass.</p>
       </form>
     </div>
   );

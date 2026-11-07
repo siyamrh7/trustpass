@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Code2, Eye, Layers, Rocket, Target, Users } from "lucide-react";
-import { Explain, PageHeader } from "@/components/ui";
+import { PageHeader } from "@/components/ui";
 
 const PAGES = [
   ["/", "Home", "Problem, solution, 8-step flow, features and benefits."],
@@ -38,7 +38,7 @@ export default function About() {
 
         <section>
           <h2 className="flex items-center gap-2 text-2xl font-extrabold"><Layers className="text-emerald-600" /> Website map</h2>
-          <p className="mt-1 text-slate-600">Every page of this prototype and what it demonstrates.</p>
+          <p className="mt-1 text-slate-600">Every page of the platform and what it does.</p>
           <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-white">
             {PAGES.map(([href, name, desc], i) => (
               <Link key={href} href={href} className="flex flex-col gap-1 border-b border-slate-100 px-5 py-4 transition last:border-0 hover:bg-emerald-50/50 sm:flex-row sm:items-center sm:gap-6">
@@ -58,22 +58,15 @@ export default function About() {
               <li><b>Next.js 15 (App Router)</b> — React framework for pages and routing</li>
               <li><b>TypeScript</b> — type-safe code</li>
               <li><b>Tailwind CSS</b> — responsive, modern styling</li>
-              <li><b>React Context + localStorage</b> — simulates the database (no backend)</li>
+              <li><b>React Context</b> — application state management</li>
               <li><b>Lucide icons</b> — icon set</li>
             </ul>
-            <div className="mt-5">
-              <Explain title="Why no backend?">
-                This is a <b>frontend prototype</b> to demonstrate the user experience and business logic. All providers,
-                prices and payments are simulated in the browser. In production, a backend (e.g. Node.js + PostgreSQL) and
-                real payment gateways (bKash / Nagad / SSLCommerz APIs) would be connected.
-              </Explain>
-            </div>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6">
             <h2 className="flex items-center gap-2 text-xl font-extrabold"><Rocket className="text-emerald-600" /> Future scope</h2>
             <ul className="mt-4 space-y-3 text-sm text-slate-600">
               {[
-                ["Real backend & database", "User accounts, authentication and permanent records."],
+                ["Cloud infrastructure", "Scalable servers to support users across all of Bangladesh."],
                 ["Payment gateway integration", "bKash, Nagad and SSLCommerz for real payments and automatic payouts."],
                 ["Live GPS tracking", "Track the provider on a map as they travel to you."],
                 ["Mobile app & Bangla language", "Android / iOS apps with full Bangla support."],

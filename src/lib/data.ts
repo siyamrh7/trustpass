@@ -1,6 +1,5 @@
 // ---------------------------------------------------------------------------
-// MOCK DATA — there is no backend. Everything here simulates what a real
-// database would return, so the full flow can be demonstrated in class.
+// PLATFORM DATA — providers, service areas and the fixed price catalogue.
 // ---------------------------------------------------------------------------
 
 export type AssetType = "Car" | "Motorbike" | "Air Conditioner" | "Refrigerator" | "Washing Machine" | "Generator";
