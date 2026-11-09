@@ -246,7 +246,7 @@ export default function Home() {
             {
               t: "Trust Pass Ltd.",
               c: "from-amber-600 to-amber-800",
-              pts: ["10% commission per job", "Data for insurers & buyers", "Premium provider listings", "Scales to all of Bangladesh"],
+              pts: ["20% commission per job", "Data for insurers & buyers", "Premium provider listings", "Scales to all of Bangladesh"],
             },
           ].map((b) => (
             <div key={b.t} className={`rounded-3xl bg-gradient-to-br ${b.c} p-7 text-white`}>

@@ -100,7 +100,7 @@ export default function Dashboard() {
             <div className="mt-6 space-y-6">
               <Explain title="Provider view">
                 The provider sees new job requests (with the receiver&apos;s note), accepts them, and tracks <b>earnings</b>.
-                Earnings are paid by the platform after the receiver pays — already minus the 10% commission.
+                Earnings are paid by the platform after the receiver pays — already minus the 20% commission.
               </Explain>
               <div className="flex flex-wrap items-center gap-3 text-sm">
                 <span className="text-slate-500">Viewing as provider:</span>
@@ -165,7 +165,7 @@ export default function Dashboard() {
           return (
             <div className="mt-6 space-y-6">
               <Explain title="Platform (Trust Pass Ltd.) view">
-                This is how the company earns money. Every payment passes through Trust Pass: we keep a <b>10% commission</b>,
+                This is how the company earns money. Every payment passes through Trust Pass: we keep a <b>20% commission</b>,
                 collect VAT for the government, and pay the rest to providers.
               </Explain>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

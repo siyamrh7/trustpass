@@ -267,7 +267,7 @@ export const CATALOG: CatalogItem[] = [
 ];
 
 // Business rules for pricing
-export const PLATFORM_COMMISSION = 0.1; // 10% kept by Trust Pass
+export const PLATFORM_COMMISSION = 0.2; // 20% kept by Trust Pass
 export const VAT_RATE = 0.05; // 5% VAT on service
 
 export function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {

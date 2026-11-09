@@ -85,7 +85,7 @@ const FLOW = [
     title: "Provider payout & Passport update",
     page: { href: "/passport", label: "Service Passport page" },
     points: [
-      "Trust Pass keeps a 10% commission and pays the rest to the provider's bKash / bank account.",
+      "Trust Pass keeps a 20% commission and pays the rest to the provider's bKash / bank account.",
       "The completed service is permanently added to the asset's Digital Service Passport.",
       "Receiver can rate the provider, which updates the provider's public rating.",
     ],
@@ -150,9 +150,9 @@ export default function HowItWorks() {
           <div className="mt-8 grid items-stretch gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
             <FlowBox icon={User} title="Receiver pays" amount="৳ 3,465" lines={["Subtotal ৳ 3,300", "+ VAT 5% ৳ 165"]} tone="bg-sky-50 border-sky-200 text-sky-700" />
             <Arrow />
-            <FlowBox icon={Building2} title="Trust Pass holds" amount="৳ 3,465" lines={["Keeps 10% commission ৳ 330", "Sends VAT ৳ 165 to NBR"]} tone="bg-emerald-50 border-emerald-200 text-emerald-700" />
+            <FlowBox icon={Building2} title="Trust Pass holds" amount="৳ 3,465" lines={["Keeps 20% commission ৳ 660", "Sends VAT ৳ 165 to NBR"]} tone="bg-emerald-50 border-emerald-200 text-emerald-700" />
             <Arrow />
-            <FlowBox icon={Wrench} title="Provider receives" amount="৳ 2,970" lines={["Subtotal − commission", "Paid to bKash / bank"]} tone="bg-amber-50 border-amber-200 text-amber-700" />
+            <FlowBox icon={Wrench} title="Provider receives" amount="৳ 2,640" lines={["Subtotal − commission", "Paid to bKash / bank"]} tone="bg-amber-50 border-amber-200 text-amber-700" />
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -164,14 +164,14 @@ export default function HowItWorks() {
                 <p>subtotal = labour + parts + visit_charge</p>
                 <p>vat      = subtotal × 5%</p>
                 <p>total    = subtotal + vat</p>
-                <p>commission = subtotal × 10%</p>
+                <p>commission = subtotal × 20%</p>
                 <p>payout   = subtotal − commission</p>
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
               <h3 className="font-bold">Revenue model of Trust Pass Ltd.</h3>
               <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                <li>• <b>10% commission</b> on every completed job.</li>
+                <li>• <b>20% commission</b> on every completed job.</li>
                 <li>• <b>Featured listing</b> subscription for providers who want to appear first.</li>
                 <li>• <b>Verified passport reports</b> sold to used-car buyers, banks and insurance companies (with owner permission).</li>
                 <li>• <b>Parts partnerships</b> with genuine parts suppliers.</li>
